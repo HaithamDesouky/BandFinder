@@ -1,0 +1,32 @@
+h1 {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.shop {
+  a {
+    margin: 3rem 0;
+    height: 5rem;
+  }
+}
+
+.pageName {
+  margin-top: 4rem;
+}
+
+#checkout-button {
+  margin-top: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,72 @@
+body {
+  font-family: 'Space Mono', monospace;
+  color: black;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  display: flex;
+  color: white;
+  text-decoration: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  input,
+  textarea {
+    margin-bottom: 1em;
+  }
+}
+
+input,
+textarea,
+label,
+button {
+  border: 1px solid lightgray;
+  font: inherit;
+  color: white;
+  line-height: inherit;
+  background-color: transparent;
+  padding: 1em;
+}
+
+.error-block {
+  background-color: rgba(189, 62, 23, 0.424);
+  border: 1px solid rgb(189, 62, 23);
+  border-radius: 0.5em;
+  padding: 1em;
+  color: white;
+}
+
+.container {
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 4rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a {
+  color: white;
+}
+
+.titleCenter {
+  padding-left: 60%;
+}

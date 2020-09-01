@@ -1,0 +1,21 @@
+#stripe {
+  height: 2rem;
+  margin: 1rem 0;
+}
+
+button {
+  background-color: #ff8400;
+}
+
+button:hover {
+  background-color: black;
+}
+
+#checkout-button {
+  margin: 0 auto;
+  display: flex;
+  width: 75%;
+  margin-bottom: 3rem;
+  font-size: 1.3rem;
+  justify-content: center;
+}

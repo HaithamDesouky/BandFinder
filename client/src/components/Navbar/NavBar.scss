@@ -108,12 +108,13 @@
   }
 
   .nav-menu.active {
-    background: #6668f4;
+    background: white;
     left: 0;
     top: 80px;
     opacity: 1;
     transition: all 0.7s ease;
     z-index: 1;
+    border-bottom: 5px solid black;
   }
 
   .nav-links {
@@ -146,8 +147,8 @@
   }
 
   .fa-times {
-    color: #fff;
-    font-size: 2rem;
+    color: black;
+    font-size: 3rem;
   }
 
   // .nav-links-mobile {

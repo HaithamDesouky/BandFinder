@@ -64,6 +64,8 @@
 }
 @media only screen and (max-width: 600px) {
   #home {
+    align-items: flex-start;
+
     h1 {
       font-size: 2rem;
     }

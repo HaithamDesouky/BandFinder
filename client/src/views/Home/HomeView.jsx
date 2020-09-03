@@ -16,7 +16,7 @@ class HomeView extends Component {
     return (
       <div className="container">
         <div class="row">
-          <section id="home" class="parallax-section">
+          <section id="home">
             <div>
               <div class="home-wrapper">
                 <h3>Welcome to BandFinder</h3>
@@ -60,11 +60,11 @@ class HomeView extends Component {
                   <h4>What you can do with us:</h4>
                   <ul>
                     <li>Show off your music</li>
-                    <li>
-                      Share posts, concerts and merchandise with your fans
-                    </li>
+                    <li>Share posts and photos with your fans</li>
                     <li>Find artists for your band</li>
                     <li>Find a band to play with</li>
+                    <li>Tell your fans about your concerts</li>
+                    <li>Share your exclusive merchandise with your fans</li>
                   </ul>
                 </div>
               </div>

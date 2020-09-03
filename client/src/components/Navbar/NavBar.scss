@@ -110,12 +110,18 @@
 
   .nav-menu.active {
     background: white;
+    justify-content: center;
     left: 0;
-    top: 80px;
+    top: 0px;
     opacity: 1;
-    transition: all 0.7s ease;
-    z-index: 1;
+    transition: all 1s ease;
+    z-index: -1;
     border-bottom: 5px solid black;
+    border-top: 5px solid black;
+
+    padding-top: 2rem;
+    height: 1;
+    height: 50vh;
   }
 
   .nav-links {
@@ -123,10 +129,11 @@
     padding: 0.3rem;
     width: 100%;
     display: table;
+    font-size: 1.4rem;
   }
 
   .nav-links:hover {
-    background-color: #7577fa;
+    background-color: black;
     border-radius: 0;
   }
 
@@ -150,6 +157,7 @@
   .fa-times {
     color: black;
     font-size: 3rem;
+    z-index: 2;
   }
 
   // .nav-links-mobile {
@@ -167,7 +175,7 @@
 
   .nav-links-mobile:hover {
     background: #fff;
-    color: #6568f4;
+    color: #d8b36a;
     transition: 250ms;
   }
 }

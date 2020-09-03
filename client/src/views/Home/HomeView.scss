@@ -80,14 +80,19 @@
   background: #e8e8e8;
   border-radius: 8px;
   color: #000000;
-  padding: 6px 12px;
   display: inline-block;
   margin-bottom: 40px;
+  margin-top: 10px;
+}
+
+#about p {
+  margin-top: 10px;
 }
 
 #about a:hover {
   background: #000000;
   color: #d7b065;
+  padding: 6px 12px;
 }
 
 #about .about-thumb {
@@ -239,5 +244,13 @@ footer {
 
   .user-gallery {
     flex-direction: column;
+
+    h4 {
+      text-align: center;
+    }
+  }
+
+  footer {
+    height: 12vh;
   }
 }

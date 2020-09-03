@@ -67,7 +67,6 @@ button {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 4rem;
 }
 
 // Typography
@@ -111,7 +110,8 @@ h4 {
   font-weight: 400;
 }
 
-p {
+p,
+li {
   color: #878787;
   font-size: 16px;
   font-weight: 300;

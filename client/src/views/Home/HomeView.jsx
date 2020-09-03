@@ -20,18 +20,20 @@ class HomeView extends Component {
   render() {
     return (
       <div className="container">
-        <div className="greeting">
-          <h1>BandFinder</h1>
-          <h3>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis
-            explicabo doloremque tenetur odit similique rem provident
-            voluptatibus. Nemo aperiam magni fugit recusandae eum, cumque
-            incidunt, modi consectetur fuga ipsam a.
-          </h3>
-
-          <Link to="/shop" className="home-links">
-            Check out our amazing boxes here
-          </Link>
+        <div class="container">
+          <div class="row">
+            <section id="home" class="parallax-section">
+              <div>
+                <div class="home-wrapper">
+                  <h3>Welcome to BandFinder</h3>
+                  <h1>
+                    Connecting artists and cultivating a community for creatives
+                    to meet, collaborate and grow.
+                  </h1>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
 
         <div className="second">

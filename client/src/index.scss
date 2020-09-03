@@ -1,6 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700|Playfair+Display');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  font-family: 'Space Mono', monospace;
+  font-family: 'Nunito Sans', sans-serif;
   color: black;
+  overflow-x: hidden;
 }
 
 code {
@@ -57,14 +66,59 @@ button {
   margin-bottom: 4rem;
 }
 
+// Typography
+
 h1,
 h2,
 h3,
 h4,
 h5,
-p,
-a {
-  color: white;
+h6 {
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: 0px;
+}
+
+h1 {
+  color: #3d3d3f;
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  line-height: normal;
+}
+
+h2 {
+  color: #575757;
+  font-size: 35px;
+  line-height: normal;
+}
+
+h3 {
+  color: #d7b065;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 32px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}
+
+h4 {
+  color: #797979;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+p {
+  color: #878787;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 25px;
+  letter-spacing: 0.2px;
+}
+
+strong,
+span {
+  color: #878787;
+  font-weight: normal;
 }
 
 .titleCenter {

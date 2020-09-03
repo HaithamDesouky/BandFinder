@@ -1,3 +1,27 @@
+#home {
+  background: url(./homebg.gif) 50% 0 repeat-y fixed;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 75vh;
+  text-align: center;
+  position: relative;
+  margin: 82px 12px 0 12px;
+}
+
+.home-wrapper {
+  background: rgba(250, 250, 250, 0.8);
+  padding: 32px 12px;
+}
+
 .second {
   background-color: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
   width: 100%;
@@ -26,37 +50,11 @@
   background-color: black;
 }
 
-.greeting {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
-  width: 100vw;
-  height: 70vh;
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover;
-  text-align: center;
-  color: white;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-
-  h1 {
-    margin-bottom: 1rem;
-    font-size: 4rem;
-  }
-
-  h3 {
-    padding-bottom: 2rem;
-    width: 50%;
-    margin: 0 auto;
-    font-size: 1.3rem;
-  }
-}
-
 .items {
   width: 20vh;
   height: 20vh;
   text-align: center;
-  color: white;
+  color: black;
   justify-content: center;
   display: flex;
   flex-direction: column;
@@ -65,23 +63,14 @@
   margin-bottom: 4rem;
 }
 @media only screen and (max-width: 600px) {
-  .greeting {
-    padding: 2rem;
-
+  #home {
     h1 {
-      font-size: 3rem;
+      font-size: 2rem;
     }
 
     h3 {
-      width: 90%;
+      font-size: 1.5rem;
+      padding-bottom: 1rem;
     }
-
-    a {
-      width: 70%;
-    }
-  }
-
-  #lone-link {
-    width: 70%;
   }
 }

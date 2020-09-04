@@ -237,8 +237,8 @@ class App extends Component {
             {/* <Route path="/authentication/sign-in" component={AuthenticationSignInView} /> */}
           </Switch>
         )) || (
-          <div>
-            <h1>Loading...</h1>
+          <div className="loading">
+            <h1>Your page is loading! Thank you for your patience!</h1>
           </div>
         )}
       </div>

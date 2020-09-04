@@ -32,11 +32,11 @@ class HomeView extends Component {
             <div className="about-left-side">
               <img src={guitarist} alt="about image" />
 
-              <h4>Looking for an artist?</h4>
+              <h4>Looking for an artist or band?</h4>
               <p>
-                In our community we have various artists willing to share their
-                talents with other artists. Click below to view our members who
-                are looking for bands to join!
+                In our community we have various artists and bands willing to
+                share their talents with other artists. Click below to view our
+                members who are looking for people to collaborate with!
               </p>
               <Link to="#">View Our Artists</Link>
             </div>
@@ -46,25 +46,34 @@ class HomeView extends Component {
                 <div>
                   <h3>join our community today</h3>
                   <h2>
-                    Take advantage of our active community to find just the band
-                    you are looking for
+                    Take advantage of our active community, not only to find the
+                    band you're looking for but for so much more!
                   </h2>
                 </div>
                 <div>
-                  <p>
-                    Here in BandFinder, not only can you find artists and bands
-                    you to collaborate with but you can share with your fans
-                    your latest news and merchanise.
-                  </p>
-
-                  <h4>What you can do with us:</h4>
+                  {/* <h4>With us you can:</h4> */}
                   <ul>
-                    <li>Show off your music</li>
-                    <li>Share posts and photos with your fans</li>
-                    <li>Find artists for your band</li>
-                    <li>Find a band to play with</li>
-                    <li>Tell your fans about your concerts</li>
-                    <li>Share your exclusive merchandise with your fans</li>
+                    <li>
+                      <i className="fas fa-music"></i> Show off your music
+                    </li>
+                    <li>
+                      <i class="fas fa-thumbs-up"></i> Share posts and photos
+                      with your fans{' '}
+                    </li>
+                    <li>
+                      <i class="fas fa-guitar"></i> Find artists for your band
+                    </li>
+                    <li>
+                      <i class="fas fa-users"></i> Find a band to play with
+                    </li>
+                    <li>
+                      <i class="fas fa-calendar-alt"></i> Tell your fans about
+                      your concerts
+                    </li>
+                    <li>
+                      <i class="fas fa-store-alt"></i> Share exclusive
+                      merchandise with your fans
+                    </li>
                   </ul>
                 </div>
               </div>

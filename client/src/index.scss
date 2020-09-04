@@ -43,11 +43,12 @@ form {
 
 input,
 textarea,
-label,
+select,
+option,
 button {
   border: 1px solid lightgray;
   font: inherit;
-  color: white;
+  color: black;
   line-height: inherit;
   background-color: transparent;
   padding: 1em;

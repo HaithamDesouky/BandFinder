@@ -8,6 +8,11 @@ const schema = new mongoose.Schema(
       type: String,
       trim: true
     },
+    userType: {
+      type: String,
+      enum: ['Artist', 'Band', 'Fan']
+    },
+    instrument: String,
     history: [{ type: mongoose.Schema.Types.ObjectId, ref: 'LootBox' }],
     email: {
       type: String,

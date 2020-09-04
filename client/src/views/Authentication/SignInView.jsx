@@ -48,7 +48,7 @@ class AuthenticationSignInView extends Component {
 form-signup"
             onSubmit={this.handleFormSubmission}
           >
-            <label htmlFor="input-email"></label>
+            <label htmlFor="input-email">Email: </label>
             <input
               className="form"
               id="input-email"
@@ -60,7 +60,7 @@ form-signup"
               required
             />
 
-            <label htmlFor="input-password"></label>
+            <label htmlFor="input-password">Password: </label>
             <input
               className="form"
               id="input-password"

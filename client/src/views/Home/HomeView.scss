@@ -23,6 +23,14 @@
 .home-wrapper {
   background: rgba(250, 250, 250, 0.8);
   padding: 32px 12px;
+
+  h3 {
+    animation: moveInLeft 2s;
+  }
+
+  h1 {
+    animation: moveInRight 2s;
+  }
 }
 
 .home-links {
@@ -116,6 +124,8 @@
     padding: 0.3rem;
   }
 }
+
+x
 
 /*---------------------------------------
   Community Section section              
@@ -252,5 +262,31 @@ footer {
 
   footer {
     height: 12vh;
+  }
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
   }
 }

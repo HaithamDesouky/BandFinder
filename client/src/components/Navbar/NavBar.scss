@@ -17,6 +17,7 @@
   justify-self: start;
   margin-left: 20px;
   cursor: pointer;
+  animation: moveInLeft 2s;
 }
 
 .fa-react {
@@ -33,6 +34,7 @@
   width: 70vw;
   justify-content: end;
   margin-right: 2rem;
+  animation: moveInRight 2s;
 
   li {
     display: flex;

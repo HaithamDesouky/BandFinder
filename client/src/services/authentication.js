@@ -11,7 +11,14 @@ export const signUp = signUpData => {
   body.append('password', signUpData.password);
   body.append('email', signUpData.email);
   body.append('photo', signUpData.photo);
-  return api.post('/sign-up', body).then(response => response.data);
+  body.append('userType', signUpData.userType);
+  body.append('instruments', signUpData.instruments);
+  console.log('just before backend', signUpData);
+  return api.post('/sign-up', body).then(response => {
+    console.log(response.data);
+
+    return response.data;
+  });
 };
 
 export const signIn = body =>

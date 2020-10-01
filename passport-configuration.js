@@ -33,24 +33,42 @@ passport.use(
       if (req.file) {
         url = req.file.path;
       }
-      const name = req.body.name;
-      bcryptjs
-        .hash(password, 10)
-        .then(hash => {
-          return User.create({
-            name,
-            email,
-            passwordHash: hash,
-            photo: url
-          });
-        })
-        .then(user => {
-          callback(null, user);
+
+      const { name, instruments, userType } = req.body;
+      User.findOne({
+        email
+      })
+        .then(document => {
+          if (document) {
+            return Promise.reject(new Error('This email already exists'));
+          } else {
+            bcryptjs
+              .hash(password, 10)
+              .then(hash => {
+                return User.create({
+                  name,
+                  email,
+                  passwordHash: hash,
+                  photo: url,
+                  instruments: instruments.split(','),
+                  userType
+                });
+              })
+              .then(user => {
+                callback(null, user);
+              })
+              .catch(error => {
+                console.log(error);
+                callback(error);
+              });
+          }
         })
         .catch(error => {
           console.log(error);
           callback(error);
         });
+
+      console.log('should');
     }
   )
 );
@@ -73,7 +91,9 @@ passport.use(
         if (passwordMatchesHash) {
           callback(null, user);
         } else {
-          callback(new Error('WRONG_PASSWORD'));
+          callback(
+            new Error('It seems the password is incorrect. Please try again')
+          );
         }
       })
       .catch(error => {

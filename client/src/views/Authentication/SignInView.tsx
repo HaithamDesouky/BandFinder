@@ -1,13 +1,15 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { signIn } from '../../services/authentication';
 import './SignUpView.scss';
+
 interface UserProps {
   updateUser(user: any): void;
 }
 
 const AuthenticationSignInView: React.FC<UserProps> = ({ updateUser }) => {
   let [errorMessage, setError] = useState(false);
-  const [user, setUser] = useState('');
+  let history = useHistory();
 
   const handleFormSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,8 +23,12 @@ const AuthenticationSignInView: React.FC<UserProps> = ({ updateUser }) => {
       const user = await signIn(body);
 
       updateUser(user.user);
+
+      if (user) {
+        history.push('/');
+      }
     } catch (error) {
-      const serverError = error;
+      const serverError = error.response.data.error;
 
       setError(serverError.message);
     }

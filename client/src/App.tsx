@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route, Redirect, BrowserRouter } from 'react-router-dom';
 import { loadMe, signOut } from './services/authentication';
 import NewsFeed from './views/NewsFeed';
@@ -11,7 +11,7 @@ import HomeView from './views/Home/HomeView';
 import Navbar from './components/Navbar/NavBar';
 import './App.scss';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch, connect } from 'react-redux';
 import { UserState } from './redux/userReducer';
 import { updateUser } from './redux/actions';
 
@@ -24,6 +24,18 @@ const App = () => {
     dispatch(updateUser(user));
   };
 
+  useEffect(() => {
+    console.log('running');
+    loadMe()
+      .then(data => {
+        const user = data.user;
+        onUpdateUser(user);
+      })
+      .then(error => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -34,23 +46,20 @@ const App = () => {
 
           <Route path="/news-feed" component={NewsFeed} exact />
 
-          {/* <Route
-            updateUser={onUpdateUser}
-            test={'hello'}
-            path="/authentication/sign-in"
-            component={AuthenticationSignInView}
-          /> */}
           <Route
             path="/authentication/sign-in"
             render={() => (
               <AuthenticationSignInView updateUser={onUpdateUser} />
             )}
           />
+
           <Route
-            updateUser={onUpdateUser}
             path="/authentication/sign-up"
-            component={AuthenticationSignUpView}
+            render={() => (
+              <AuthenticationSignUpView updateUser={onUpdateUser} />
+            )}
           />
+
           <Route path="/error" component={ErrorView} />
           <Redirect from="/" to="/error" />
         </Switch>

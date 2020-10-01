@@ -12,8 +12,7 @@ const schema = new mongoose.Schema(
       type: String,
       enum: ['Artist', 'Band', 'Fan']
     },
-    instrument: String,
-    history: [{ type: mongoose.Schema.Types.ObjectId, ref: 'LootBox' }],
+    instruments: [String],
     email: {
       type: String,
       required: true,
@@ -25,13 +24,9 @@ const schema = new mongoose.Schema(
       type: Boolean,
       default: false
     },
-    credits: {
-      type: Number,
-      default: 0
-    },
     address: String,
     phone: String,
-    completedProfile: { type: Boolean, default: false },
+    authenticated: { type: Boolean, default: false },
     photo: String,
     passwordHash: {
       type: String

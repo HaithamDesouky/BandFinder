@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { loadMe, signOut } from './services/authentication';
 import NewsFeed from './views/NewsFeed';
@@ -18,91 +18,25 @@ import ProtectedRoute from './components/ProtectedRoute';
 import AdminRoute from './components/AdminRoute';
 import OrderView from './views/OrderView';
 
-// import { useHistory } from 'react-router-dom';
 import AllItemsView from './views/Admin/AllItemsView';
 import AdminArea from './views/Admin/AdminArea';
 import UserProfile from './views/Social/UserProfile';
+import { UserContextProvider } from './UserContext';
 
 import './App.scss';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      loaded: false,
-      user: null,
-      basket: []
-    };
-  }
+import { BrowserRouter } from 'react-router-dom';
 
-  componentDidMount() {
-    this.loadUser();
-  }
+const App = () => {
+  const [userData, setUserData] = useState({
+    user: undefined
+  });
 
-  loadUser = () => {
-    loadMe()
-      .then(data => {
-        const user = data.user;
-        this.handleUserUpdate(user);
-      })
-      .then(error => {
-        console.log(error);
-      });
-  };
-
-  handleUserUpdate = user => {
-    ('handle update user');
-    this.setState({
-      user,
-      loaded: true
-    });
-  };
-
-  handleSignOut = () => {
-    signOut()
-      .then(() => {
-        this.props.history.push('/');
-        this.handleUserUpdate(null);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
-
-  handleChangeInQuantity = (lootBox, value) => {
-    const basketClone = [...this.state.basket];
-    const existingLootBox = basketClone.find(
-      item => item.lootBox.name === lootBox.name
-    );
-
-    if (existingLootBox) {
-      const editedLootBox = { ...existingLootBox };
-      editedLootBox.quantity += value;
-      const index = basketClone.indexOf(existingLootBox);
-      if (editedLootBox.quantity > 0) {
-        basketClone.splice(index, 1, editedLootBox);
-      } else {
-        basketClone.splice(index, 1);
-      }
-    } else if (value > 0) {
-      const newLootBox = {
-        lootBox,
-        quantity: 1
-      };
-      basketClone.push(newLootBox);
-    }
-
-    this.setState({
-      basket: basketClone
-    });
-  };
-
-  render() {
-    return (
-      <div className="App">
-        <Navbar user={this.state.user} onSignOut={this.handleSignOut} />
-
-        {(this.state.loaded && (
+  return (
+    <UserContextProvider>
+      <BrowserRouter>
+        <div className="App">
+          <Navbar />
           <Switch>
             <Route path="/" component={HomeView} exact />
             <NewsFeed path="/social/newsfeed" exact />
@@ -110,21 +44,21 @@ class App extends Component {
             <AdminRoute
               path="/admin/items/list"
               component={AllItemsView}
-              authorized={this.state.user}
+              // authorized={user}
               redirect="/error"
               exact
             />
             <AdminRoute
               path="/admin/create-item"
-              render={() => <ItemCreationView user={this.state.user} />}
-              authorized={this.state.user}
+              render={() => <ItemCreationView />}
+              // authorized={user}
               redirect="/error"
               exact
             />
             <AdminRoute
               path="/admin"
-              render={() => <AdminArea user={this.state.user} />}
-              authorized={this.state.user}
+              render={() => <AdminArea />}
+              // authorized={user}
               redirect="/error"
               exact
             />
@@ -144,20 +78,19 @@ class App extends Component {
               render={props => (
                 <CheckoutView
                   {...props}
-                  user={this.state.user}
                   loadUser={this.loadUser}
                   basket={this.state.basket}
                   onChangeQuantity={this.handleChangeInQuantity}
                 />
               )}
-              authorized={this.state.user}
+              // authorized={user}
               redirect="/error"
               exact
             />
             <AdminRoute
               path="/admin/items/list"
               component={AllItemsView}
-              authorized={this.state.user}
+              // authorized={user}
               redirect="/error"
               exact
             />
@@ -179,7 +112,7 @@ class App extends Component {
             <ProtectedRoute
               path="/post/create"
               component={PostCreationView}
-              authorized={this.state.user}
+              // authorized={user}
               redirect="/authentication/sign-in"
             />
 
@@ -187,63 +120,50 @@ class App extends Component {
               path="/user/:id"
               exact
               component={UserProfile}
-              authorized={this.state.user}
+              // authorized={user}
               redirect="/authentication/sign-in"
             />
             <ProtectedRoute
               path="/order/:id"
               exact
               component={OrderView}
-              authorized={this.state.user}
+              // authorized={user}
               redirect="/authentication/sign-in"
             />
             <ProtectedRoute
               path="/post/:id/edit"
               component={PostEditView}
-              authorized={this.state.user}
+              // authorized={user}
               redirect="/authentication/sign-in"
             />
             <Route
               path="/post/:id"
-              render={props => (
-                <SinglePostView {...props} user={this.state.user} />
-              )}
+              render={props => <SinglePostView {...props} />}
               exact
             />
             <ProtectedRoute
               path="/authentication/sign-up"
-              render={props => (
-                <AuthenticationSignUpView
-                  {...props}
-                  onUserUpdate={this.handleUserUpdate}
-                />
-              )}
-              authorized={!this.state.user}
+              render={props => <AuthenticationSignUpView {...props} />}
+              // authorized={!user}
               redirect="/"
             />
-            <ProtectedRoute
+
+            <Route
               path="/authentication/sign-in"
-              render={props => (
-                <AuthenticationSignInView
-                  {...props}
-                  onUserUpdate={this.handleUserUpdate}
-                />
-              )}
-              authorized={!this.state.user}
-              redirect="/"
+              component={AuthenticationSignInView}
             />
+
             <Route path="/error" component={ErrorView} />
             <Redirect from="/" to="/error" />
-            {/* <Route path="/authentication/sign-in" component={AuthenticationSignInView} /> */}
           </Switch>
-        )) || (
+          {/* )) || (
           <div className="loading">
             <h1>Your page is loading! Thank you for your patience!</h1>
-          </div>
-        )}
-      </div>
-    );
-  }
-}
+          </div> */}
+        </div>
+      </BrowserRouter>
+    </UserContextProvider>
+  );
+};
 
-export default withRouter(App);
+export default App;

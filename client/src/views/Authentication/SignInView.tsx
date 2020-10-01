@@ -1,21 +1,26 @@
 import React, { useState, useContext } from 'react';
 import { signIn } from '../../services/authentication';
 import './SignUpView.scss';
+interface UserProps {
+  updateUser(user: any): void;
+}
 
-const AuthenticationSignInView = () => {
+const AuthenticationSignInView: React.FC<UserProps> = ({ updateUser }) => {
   let [errorMessage, setError] = useState(false);
+  const [user, setUser] = useState('');
 
-  const handleFormSubmission = async e => {
+  const handleFormSubmission = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const formInputs = e.currentTarget.elements;
-    const email = formInputs.namedItem('input-email');
-    const password = formInputs.namedItem('input-password');
+    const email = formInputs.namedItem('input-email') as HTMLInputElement;
+    const password = formInputs.namedItem('input-password') as HTMLInputElement;
 
     try {
       const body = { email: email.value, password: password.value };
       const user = await signIn(body);
-      console.log(user);
+
+      updateUser(user.user);
     } catch (error) {
       const serverError = error;
 

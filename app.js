@@ -14,9 +14,7 @@ const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js')
 const passportConfigure = require('./passport-configuration.js');
 const authenticationRouter = require('./routes/authentication');
 const postRouter = require('./routes/post');
-const itemRouter = require('./routes/item');
 const userRouter = require('./routes/user');
-const lootBoxRouter = require('./routes/lootBox');
 const orderRouter = require('./routes/order');
 const commentsRouter = require('./routes/comments');
 const creditsRouter = require('./routes/credits');
@@ -61,14 +59,11 @@ app.use(bindUserToViewLocals);
 
 app.use('/post', postRouter);
 app.use('/authentication', authenticationRouter);
-app.use('/items', itemRouter);
 app.use('/order', orderRouter);
 app.use('/post', postRouter);
 app.use('/authentication', authenticationRouter);
-app.use('/items', itemRouter);
 app.use('/user', userRouter);
 app.use('/comments', commentsRouter);
-app.use('/lootBoxes', lootBoxRouter);
 app.use('/credits', creditsRouter);
 
 userRouter;

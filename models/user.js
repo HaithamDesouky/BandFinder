@@ -28,6 +28,7 @@ const schema = new mongoose.Schema(
     phone: String,
     authenticated: { type: Boolean, default: false },
     photo: String,
+
     passwordHash: {
       type: String
     },

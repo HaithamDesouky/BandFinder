@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-// import { Link } from "react-router-dom";
 import { loadUser } from '../../services/user';
 import { loadOrders } from '../../services/order';
 import Order from '../../components/Orders';
-// import NavBar from "../../components/Navbar";
 import './UserProfile.scss';
 import photo from './default.png';
 import { Link } from 'react-router-dom';

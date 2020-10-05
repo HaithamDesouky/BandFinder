@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { signIn } from '../../services/authentication';
+import { UserModel } from '../../models/user';
 import './SignUpView.scss';
 
 interface UserProps {
-  updateUser(user: any): void;
+  updateUser(user: UserModel): void;
 }
 
 const AuthenticationSignInView: React.FC<UserProps> = ({ updateUser }) => {

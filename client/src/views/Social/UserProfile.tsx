@@ -5,8 +5,14 @@ import photo from './default.png';
 import { Link } from 'react-router-dom';
 import { UserModel } from '../../models/user';
 import { store } from '../../redux/store';
+
+// interface User {
+//   user: string;
+// }
+
 const UserProfile = () => {
-  const user = store.getState().user;
+  const userInStorage = localStorage.getItem('user');
+  let user = JSON.parse(userInStorage!);
 
   return (
     <div>

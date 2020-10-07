@@ -28,7 +28,6 @@ const App = () => {
   };
 
   useEffect(() => {
-    console.log('running');
     loadMe()
       .then(data => {
         const user = data.user;

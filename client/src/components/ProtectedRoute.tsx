@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Redirect, RouteProps } from 'react-router-dom';
+import { UserModel } from '../models/user';
 
 import { store } from '../redux/store';
 
@@ -9,10 +10,9 @@ interface ProtectedRouteProps extends RouteProps {
 }
 
 const ProtectedRoute = (props: ProtectedRouteProps) => {
-  const user = store.getState().user;
-
   const { component: Component, ...rest } = props;
-  const [loaded, setLoaded] = useState(false);
+  const userInStorage = localStorage.getItem('user');
+  let user = JSON.parse(userInStorage!);
 
   return (
     <Route

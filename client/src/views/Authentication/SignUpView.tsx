@@ -36,19 +36,16 @@ const AuthenticationSignUpView: React.FC<UserProps> = ({ updateUser }) => {
 
     console.log(body);
 
-    signUp(body)
-      .then(data => {
-        const { user } = data;
-        updateUser(user);
-        history.push('/');
-      })
-      .then(user => console.log('successful', user))
-      .catch(error => {
-        console.log(error);
-        const serverError = error.response.data.error;
+    try {
+      const user = await signUp(body);
+      updateUser(user);
+      localStorage.setItem('user', JSON.stringify(user.user));
+      history.push('/');
+    } catch (error) {
+      const serverError = error.response.data.error;
 
-        setError(serverError.message);
-      });
+      setError(serverError.message);
+    }
   };
 
   const handlePhotoInputChange = (e: React.FormEvent<HTMLInputElement>) => {

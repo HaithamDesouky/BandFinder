@@ -23,11 +23,12 @@ const Navbar = () => {
       .then(() => {
         console.log(logOut(user));
         logOut(user);
+        localStorage.removeItem('user');
       })
+      .then(() => window.location.reload())
       .catch(error => {
         console.log(error);
       });
-    window.location.reload();
   };
 
   return (

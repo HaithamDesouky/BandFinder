@@ -24,6 +24,7 @@ const AuthenticationSignInView: React.FC<UserProps> = ({ updateUser }) => {
       const user = await signIn(body);
 
       updateUser(user.user);
+      localStorage.setItem('user', JSON.stringify(user.user));
 
       if (user) {
         history.push('/');

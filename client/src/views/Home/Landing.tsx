@@ -1,6 +1,5 @@
 import React from 'react';
 import { Styled } from './styles';
-import { Box, Flex } from 'rebass/styled-components';
 
 const Landing = () => {
   return (

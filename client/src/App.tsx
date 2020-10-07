@@ -7,6 +7,8 @@ import AuthenticationSignInView from './views/Authentication/SignInView';
 import Footer from './components/Footer/Footer';
 import ErrorView from './views/ErrorView';
 import HomeView from './views/Home/HomeView';
+import ProtectedRoute from './components/ProtectedRoute';
+import UserProfile from './views/Social/UserProfile';
 
 import Navbar from './components/Navbar/NavBar';
 import './App.scss';
@@ -43,7 +45,14 @@ const App = () => {
         <Navbar />
         <Switch>
           <Route path="/" component={HomeView} exact />
-          <NewsFeed path="/social/newsfeed" exact />
+
+          <ProtectedRoute
+            path="/social/newsfeed"
+            user={user}
+            component={NewsFeed}
+          />
+
+          <ProtectedRoute path="/profile" user={user} component={UserProfile} />
 
           <Route path="/news-feed" component={NewsFeed} exact />
 

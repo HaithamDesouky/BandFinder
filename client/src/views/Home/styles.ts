@@ -19,7 +19,6 @@ const HomeSection = styled.section`
   height: 75vh;
   text-align: center;
   position: relative;
-  margin: 82px 12px 0 0px;
 `;
 
 const HomeWrapper = styled.div`
@@ -35,7 +34,117 @@ const HomeWrapper = styled.div`
   }
 `;
 
+const AboutSection = styled.section`
+  padding-top: 100px;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  margin-bottom: 3rem;
+
+  a {
+    background: #e8e8e8;
+    border-radius: 8px;
+    color: #000000;
+    display: inline-block;
+    margin-bottom: 40px;
+    margin-top: 10px;
+  }
+
+  a:hover {
+    background: #000000;
+    color: #d7b065;
+    padding: 6px 12px;
+  }
+
+  img {
+    border-radius: 5px;
+    margin-bottom: 28px;
+  }
+`;
+
+const CommunitySection = styled.section``;
+
+const CommunityHeader = styled.section`
+  h2,
+  p {
+    padding-bottom: 1.4rem;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  h2 {
+    color: #d7b065;
+  }
+`;
+
+const LeftSideAbout = styled.div`
+  background: #ffffff;
+  border-radius: 5px;
+  padding: 0 32px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  ${media.lessThan('medium')`
+
+   padding: 0
+    `}
+
+  h2 {
+    font-size: 2rem;
+
+    ${media.lessThan('medium')`
+
+    font-size: 1.5rem
+    `}
+  }
+
+  h3 {
+    ${media.lessThan('medium')`
+
+    text-align: center;
+    margin-bottom: 0.5rem;
+    `}
+  }
+
+  h4,
+  h2,
+  p {
+    margin-bottom: 1rem;
+  }
+  ul {
+    list-style: none;
+  }
+
+  li {
+    padding: 0.3rem;
+  }
+`;
+
+const CommunityBoxes = styled.div`
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 1rem;
+  overflow: hidden;
+  position: relative;
+
+  &:hover {
+    box-shadow: 0px 16px 22px 0px rgba(90, 91, 95, 0.3);
+    top: -5px;
+  }
+
+  img {
+    border-radius: 5px;
+    cursor: crosshair;
+  }
+`;
+
 export const Styled = {
   HomeSection,
-  HomeWrapper
+  HomeWrapper,
+  AboutSection,
+  LeftSideAbout,
+  CommunitySection,
+  CommunityHeader,
+  CommunityBoxes
 };

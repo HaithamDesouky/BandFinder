@@ -5,6 +5,7 @@ import { LoggedInMenuItems, NotLoggedInMenuItems } from './MenuItems';
 import { Button } from '../Button/Button';
 import './NavBar.scss';
 import { store } from '../../redux/store';
+
 import { logOut } from '../../redux/actions';
 import { signOut } from './../../services/authentication';
 

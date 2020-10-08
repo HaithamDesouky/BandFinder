@@ -31,6 +31,7 @@ const App = () => {
     loadMe()
       .then(data => {
         const user = data.user;
+        console.log('load me', data.user);
         onUpdateUser(user);
       })
       .then(error => {

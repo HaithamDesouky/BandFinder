@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import media from 'styled-media-query';
 
-import img from './images/homebg.gif';
+import img from '../../images/homebg.gif';
 
 const HomeSection = styled.section`
   background: url(${img}) 50% 0 repeat-y fixed;

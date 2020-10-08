@@ -16,6 +16,10 @@ body {
   overflow-x: hidden;
 }
 
+.App {
+  min-height: calc(100vh - 170px);
+  min-width: 100vw;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -155,6 +159,18 @@ span {
   0% {
     opacity: 0;
     transform: translateX(10rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10rem);
   }
 
   100% {

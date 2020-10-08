@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { signIn } from '../../services/authentication';
 import { UserModel } from '../../models/user';
-import './SignUpView.scss';
+import { Styled } from './styles';
+import { Box, Flex } from 'rebass/styled-components';
 
 interface UserProps {
   updateUser(user: UserModel): void;
@@ -37,17 +38,13 @@ const AuthenticationSignInView: React.FC<UserProps> = ({ updateUser }) => {
   };
 
   return (
-    <div className="form-box">
-      <div className="form-div">
-        <h2>Sign In</h2>
-        <form
-          className="
-form-signup"
-          onSubmit={handleFormSubmission}
-        >
+    <Styled.FormContainer>
+      <Styled.FormWrapper>
+        <form onSubmit={handleFormSubmission}>
+          <h2>Sign In</h2>
+
           <label htmlFor="input-email">Email: </label>
           <input
-            className="form"
             id="input-email"
             type="email"
             name="email"
@@ -71,12 +68,10 @@ form-signup"
             </div>
           )}
 
-          <div className="buttons">
-            <button className="btn-form">Sign In</button>
-          </div>
+          <Styled.SubmissionButton>Sign In</Styled.SubmissionButton>
         </form>
-      </div>
-    </div>
+      </Styled.FormWrapper>
+    </Styled.FormContainer>
   );
 };
 

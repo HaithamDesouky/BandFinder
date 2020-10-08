@@ -1,14 +1,14 @@
 import React from 'react';
-import './Footer.scss';
+import { Styled } from './styles';
+
 export default function Footer() {
   return (
-    <footer id="footer">
+    <Styled.Footer>
       <ul class="social-icon">
-        <li>Copyright © 2020 BandFinder | Contact us: </li>
+        <li> BandFinder </li>
         <li>
           <i className="fab fa-github"></i>
         </li>
-
         <li>
           <i className="fab fa-react"></i>
         </li>
@@ -26,6 +26,6 @@ export default function Footer() {
           <i className="fab fa-linkdin-in"></i>
         </li>
       </ul>
-    </footer>
+    </Styled.Footer>
   );
 }

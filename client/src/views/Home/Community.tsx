@@ -20,7 +20,7 @@ export default function Community() {
       <Flex flexWrap="wrap" mx={-3}>
         <Box width={[12 / 12, 6 / 12, 3 / 12, 3 / 12]} px={3}>
           <Styled.CommunityBoxes>
-            <img src={guitarist} class="img-responsive" alt="Fine Arts" />
+            <img src={guitarist} className="img-responsive" alt="Fine Arts" />
 
             <h4>artist 1</h4>
           </Styled.CommunityBoxes>
@@ -28,21 +28,21 @@ export default function Community() {
 
         <Box width={[12 / 12, 6 / 12, 3 / 12, 3 / 12]} px={3}>
           <Styled.CommunityBoxes>
-            <img src={guitarist} class="img-responsive" alt="artist 1" />
+            <img src={guitarist} className="img-responsive" alt="artist 1" />
             <h4>artist 1</h4>
           </Styled.CommunityBoxes>
         </Box>
 
         <Box width={[12 / 12, 6 / 12, 3 / 12, 3 / 12]} px={3}>
           <Styled.CommunityBoxes>
-            <img src={guitarist} class="img-responsive" alt="artist 1" />
+            <img src={guitarist} className="img-responsive" alt="artist 1" />
             <h4>artist 1</h4>
           </Styled.CommunityBoxes>
         </Box>
 
         <Box width={[12 / 12, 6 / 12, 3 / 12, 3 / 12]} px={3}>
           <Styled.CommunityBoxes>
-            <img src={guitarist} class="img-responsive" alt="artist 1" />
+            <img src={guitarist} className="img-responsive" alt="artist 1" />
             <h4>artist 1</h4>
           </Styled.CommunityBoxes>
         </Box>

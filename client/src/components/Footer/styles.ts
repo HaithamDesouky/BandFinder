@@ -1,11 +1,18 @@
-footer {
+import styled from 'styled-components';
+import media from 'styled-media-query';
+
+const Footer = styled.footer`
   background: #000000;
   height: 9vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100vw;
+  padding: 10px;
+  height: 50px;
 
   ul {
     display: flex;
@@ -22,4 +29,8 @@ footer {
       }
     }
   }
-}
+`;
+
+export const Styled = {
+  Footer
+};

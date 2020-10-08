@@ -13,7 +13,6 @@ export const signUp = signUpData => {
   body.append('photo', signUpData.photo);
   body.append('userType', signUpData.userType);
   body.append('instruments', signUpData.instruments);
-  console.log('just before backend', signUpData);
   return api.post('/sign-up', body).then(response => {
     console.log(response.data);
 

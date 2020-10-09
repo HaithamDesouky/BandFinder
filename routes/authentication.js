@@ -11,6 +11,7 @@ const multerStorageCloudinary = require('multer-storage-cloudinary');
 const storage = new multerStorageCloudinary.CloudinaryStorage({
   cloudinary: cloudinary.v2
 });
+
 const roleRouteGuard = require('../middleware/roleRouteGuard');
 
 const upload = multer({ storage });
@@ -30,14 +31,6 @@ authenticationRouter.get('/me', (request, response) => {
   response.json({ user });
 });
 
-// authenticationRouter.post(
-//   '/sign-up',
-//   passport.authenticate('github', {
-//     successRedirect: '/private',
-//     failureRedirect: '/sign-up'
-//   })
-// );
-
 authenticationRouter.post(
   '/sign-in',
   // upload.single('photo'),
@@ -47,30 +40,12 @@ authenticationRouter.post(
   })
 );
 
-// authenticationRouter.get(
-//   '/github',
-//   passport.authenticate('github', {
-//     successRedirect: '/private',
-//     failureRedirect: '/authentication/sign-in'
-//   })
-// );
-
-// authenticationRouter.get(
-//   '/github-callback',
-//   passport.authenticate('github', {
-//     successRedirect: '/private',
-//     failureRedirect: '/authentication/sign-in'
-//   })
-// );
-
 authenticationRouter.post('/sign-out', (req, res, next) => {
+  console.log(req.session);
+
+  req.session.destroy();
   req.logout();
   res.json({});
 });
 
 module.exports = authenticationRouter;
-
-// authenticationRouter.get('/sign-out', (req, res) => {
-//   req.logout();
-
-// });

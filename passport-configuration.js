@@ -55,6 +55,7 @@ passport.use(
                 });
               })
               .then(user => {
+                console.log(user);
                 callback(null, user);
               })
               .catch(error => {

@@ -34,7 +34,7 @@ const App = () => {
         console.log('load me', data.user);
         onUpdateUser(user);
       })
-      .then(error => {
+      .catch(error => {
         console.log(error);
       });
   }, []);

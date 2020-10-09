@@ -36,31 +36,4 @@ const ProtectedRoute = (props: ProtectedRouteProps) => {
   );
 };
 
-// const ProtectedRoute = ({ component, isAuthenticated, ...rest }: any) => {
-//   const routeComponent = (props: any) =>
-//     isAuthenticated ? (
-//       React.createElement(component, props)
-//     ) : (
-//       <Redirect to={{ pathname: '/login' }} />
-//     );
-
-//   return <Route {...rest} user={isAuthenticated} render={routeComponent} />;
-// };
-
-// const ProtectedRoute = ({ authorized, redirect, ...props }) => {
-//   if (authorized) {
-//     return <Route {...props} />;
-//   } else {
-//     return (
-//       <Redirect
-//         to="/"
-//         to={{
-//           pathname: '/error',
-//           state: { message: 'You are not signed in.' }
-//         }}
-//       />
-//     );
-//   }
-// };
-
 export default ProtectedRoute;

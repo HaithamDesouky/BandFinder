@@ -8,12 +8,12 @@ import Footer from './components/Footer/Footer';
 import ErrorView from './views/ErrorView';
 import HomeView from './views/Home/HomeView';
 import ProtectedRoute from './components/ProtectedRoute';
-import UserProfile from './views/Social/UserProfile';
+import MyProfile from './views/Social/MyProfile';
 
 import Navbar from './components/Navbar/NavBar';
 import './App.scss';
 
-import { useSelector, useDispatch, connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { UserState } from './redux/userReducer';
 import { updateUser } from './redux/actions';
 import { UserModel } from './models/user';
@@ -52,7 +52,7 @@ const App = () => {
             component={NewsFeed}
           />
 
-          <ProtectedRoute path="/profile" user={user} component={UserProfile} />
+          <ProtectedRoute path="/profile" user={user} component={MyProfile} />
 
           <Route path="/news-feed" component={NewsFeed} exact />
 

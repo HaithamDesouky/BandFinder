@@ -1,27 +1,23 @@
 import React from 'react';
 
-import { Styled } from './styles';
-import ProfileCard from './ProfileCard';
+import ProfileCard from '../../components/ProfilePage/ProfileCard';
+import ProfileCoverPhoto from '../../components/ProfilePage/ProfileCoverPhoto';
+import MoreUserInfo from '../../components/ProfilePage/MoreUserInfo';
 
-// import { Link } from 'react-router-dom';
-// import { UserModel } from '../../models/user';
-// import { store } from '../../redux/store';
-
-// interface User {
-//   user: string;
-// }
+import { Styled } from '../../styles/common';
 
 const UserProfile = () => {
   const userInStorage = localStorage.getItem('user');
   let user = JSON.parse(userInStorage!);
 
   return (
-    <Styled.ProfileContainer>
-      <Styled.BackgroundImage>
-        <img src={user.photo} alt="UserPhoto" />
-      </Styled.BackgroundImage>
-      <ProfileCard user={user} />
-    </Styled.ProfileContainer>
+    <Styled.Content>
+      <Styled.Container>
+        <ProfileCoverPhoto user={user} />
+        <ProfileCard user={user} />
+        <MoreUserInfo user={user} />
+      </Styled.Container>
+    </Styled.Content>
   );
 };
 

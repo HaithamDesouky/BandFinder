@@ -9,7 +9,6 @@ const Container = styled(Box)`
 `;
 
 const Content = styled.section`
-  padding-top: 130px;
   padding-bottom: 32px;
 `;
 

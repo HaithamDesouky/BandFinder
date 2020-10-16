@@ -7,13 +7,13 @@ interface Props {
   user: UserModel;
 }
 
-export default function ProfileCard({ user }: Props) {
+export default function MoreUserInfo({ user }: Props) {
   return (
-    <Styled.ProfileCard>
+    <Styled.MoreInfoBox>
       <h1>Welcome, {user.name}</h1>
       {(user.photo && <img src={user.photo} alt="UserPhoto" />) || (
         <img src={photo} alt="UserPhoto" />
       )}
-    </Styled.ProfileCard>
+    </Styled.MoreInfoBox>
   );
 }

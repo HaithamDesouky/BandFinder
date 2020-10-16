@@ -14,6 +14,7 @@ export interface UserModel {
   feed?: string[];
   followers?: string[];
   following?: string[];
+  updatedAt?: string;
   _id?: string;
   __v?: number;
 }

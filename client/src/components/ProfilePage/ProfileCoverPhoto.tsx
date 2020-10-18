@@ -23,8 +23,8 @@ export default function ProfileCoverPhoto({ user }: Props) {
   console.log(userPhoto);
 
   return (
-    <Styled.BackgroundImage>
-      <img src={userPhoto} alt="UserTypeCoverPhoto" />
-    </Styled.BackgroundImage>
+    <Styled.BackgroundImage
+      bgImage={`url(${userPhoto})`}
+    ></Styled.BackgroundImage>
   );
 }

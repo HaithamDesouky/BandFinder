@@ -2,7 +2,6 @@ import React from 'react';
 
 import ProfileCard from '../../components/ProfilePage/ProfileCard';
 import ProfileCoverPhoto from '../../components/ProfilePage/ProfileCoverPhoto';
-import MoreUserInfo from '../../components/ProfilePage/MoreUserInfo';
 
 import { Styled } from '../../styles/common';
 
@@ -15,7 +14,6 @@ const UserProfile = () => {
       <Styled.Container>
         <ProfileCoverPhoto user={user} />
         <ProfileCard user={user} />
-        <MoreUserInfo user={user} />
       </Styled.Container>
     </Styled.Content>
   );

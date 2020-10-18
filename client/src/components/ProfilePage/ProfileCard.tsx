@@ -20,26 +20,28 @@ export default function ProfileCard({ user }: Props) {
   }, []);
 
   return (
-    <Styled.ProfileCard>
-      <Styled.ProfileImage
-        src={userPhoto}
-        alt="UserPhoto"
-      ></Styled.ProfileImage>
+    <Styled.ProfileCardContainer>
+      <Styled.ProfileCardContent>
+        <Styled.ProfileImage
+          src={userPhoto}
+          alt="UserPhoto"
+        ></Styled.ProfileImage>
 
-      <h4>{user.name}</h4>
-      <p>{user.userType}</p>
+        <h4>{user.name}</h4>
+        <p>{user.userType}</p>
 
-      <p>
-        Joined on <Moment format="DD MM YY">{user.updatedAt}</Moment>
-      </p>
-      <p>Followers: {user.followers!.length}</p>
+        <p>
+          Joined on <Moment format="DD MM YY">{user.updatedAt}</Moment>
+        </p>
+        <p>Followers: {user.followers!.length}</p>
 
-      <h4>Instruments:</h4>
-      <ul>
-        {user.instruments!.length &&
-          user.instruments?.map(item => <li>{item}</li>)}
-      </ul>
-    </Styled.ProfileCard>
+        <h4>Instruments:</h4>
+        <ul>
+          {user.instruments!.length &&
+            user.instruments?.map(item => <li>{item}</li>)}
+        </ul>
+      </Styled.ProfileCardContent>
+    </Styled.ProfileCardContainer>
   );
 }
 
